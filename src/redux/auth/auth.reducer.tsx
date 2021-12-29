@@ -3,7 +3,7 @@ import { LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT, REGISTER_FAIL, REGISTER_SUCCESS } fr
 
 const user = JSON.parse(localStorage.getItem("user") || "{}");
 
-const INITIAL_STATE = user ? { isLoggedIn: true, user } : { isLoggedIn: false, user: null }
+const INITIAL_STATE = Object.keys(user).length ? { isLoggedIn: true, user } : { isLoggedIn: false, user: null }
 
 const authReducer = (state = INITIAL_STATE, action: any) => {
   switch(action.type) {
