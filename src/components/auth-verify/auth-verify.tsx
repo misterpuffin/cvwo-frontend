@@ -25,7 +25,7 @@ const AuthVerify = (): JSX.Element => {
             dispatch(logout());
             }
         }
-    }, [location]);
+    }, [location, dispatch]);
 
     return (<div></div>)
 

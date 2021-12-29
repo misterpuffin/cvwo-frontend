@@ -10,7 +10,6 @@ const Tasklist = ({ taskIDs, dispatch }: { taskIDs: string[], dispatch: any }): 
 
     useEffect(() => {
         dispatch(getTasks())
-        console.log("Hi")
     }, [dispatch]);
 
 
