@@ -3,7 +3,7 @@ import React, { useState } from "react"
 import { connect } from "react-redux"
 
 
-import styles from "./task.module.scss"
+// import styles from "./task.module.scss"
 
 import { updateTask, deleteTask } from "../../redux/task/task.actions"
 

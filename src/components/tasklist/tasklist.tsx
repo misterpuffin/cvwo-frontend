@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect } from "react"
 import { connect } from "react-redux"
 
 import { Task } from "../../components"
@@ -10,7 +10,8 @@ const Tasklist = ({ taskIDs, dispatch }: { taskIDs: string[], dispatch: any }): 
 
     useEffect(() => {
         dispatch(getTasks())
-    }, []);
+        console.log("Hi")
+    }, [dispatch]);
 
 
     return (<div>
