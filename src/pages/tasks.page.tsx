@@ -3,7 +3,7 @@ import React from "react"
 import { connect } from "react-redux";
 import { Navigate } from "react-router-dom"
 
-import { Tasklist, Taskform, Header } from "../components"
+import { Tasklist, Taskform, Header, SearchBar } from "../components"
 
 
 const TasksPage = ({ isLoggedIn }: { isLoggedIn: boolean }): JSX.Element => {
@@ -13,6 +13,7 @@ const TasksPage = ({ isLoggedIn }: { isLoggedIn: boolean }): JSX.Element => {
         return (
         <div>
             <Header></Header>
+            <SearchBar></SearchBar>
             <Taskform></Taskform>
             <Tasklist></Tasklist> 
         </div>)

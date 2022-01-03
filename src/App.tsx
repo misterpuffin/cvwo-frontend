@@ -21,7 +21,7 @@ function App() {
           <div className="App">
             <Routes>
               <Route path="/login" element={<AuthPage></AuthPage>}></Route>
-              <Route path="/" element= {<TasksPage></TasksPage>}></Route>
+              <Route path="/" element={<TasksPage></TasksPage>}></Route>
             </Routes>
           </div>
           <AuthVerify></AuthVerify>

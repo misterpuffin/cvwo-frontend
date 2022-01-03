@@ -5,6 +5,7 @@ import Task from "./task/task";
 import Taskform from "./task-form/task-form";
 import Header from "./header/header";
 import AuthVerify from "./auth-verify/auth-verify";
+import SearchBar from "./search-bar/search-bar";
 
 export {
   LoginForm,
@@ -14,4 +15,5 @@ export {
   Taskform,
   Header,
   AuthVerify,
+  SearchBar,
 };
