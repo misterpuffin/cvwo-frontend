@@ -1,3 +1,6 @@
+Frontend is hosted on https://61cbfde9d877d10009207bd0--modest-bardeen-780a41.netlify.app/
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
