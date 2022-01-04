@@ -15,9 +15,10 @@ const filterReducer = (state = INITIAL_STATE, action: any) => {
             }
         case NEW_TAGS:
             const allTags = [...state.tags, ...action.payload]
+            const allDistinctTags = allTags.filter((tag, index) => allTags.indexOf(tag) === index)
             return {
                 ...state,
-                tags: allTags.filter((tag, index) => allTags.indexOf(tag) === index)
+                tags: allDistinctTags
             }
         case SET_FILTERS:
             return {

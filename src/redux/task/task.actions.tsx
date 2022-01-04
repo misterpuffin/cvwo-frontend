@@ -12,11 +12,11 @@ export const getTasks = () => (dispatch: any) => {
           type: GET_TASKS,
           payload: response.data.tasks
         });
-
+        
         dispatch({
           type: GET_TAGS,
           payload: response.data.tags
-        })
+        });
   
         return Promise.resolve();
       },

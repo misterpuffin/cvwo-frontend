@@ -1,9 +1,10 @@
 import React, { useEffect } from "react"
 import { connect } from "react-redux"
+import * as JsSearch from 'js-search';
 
 import { Task } from "../../components"
-
 import { getTasks } from "../../redux/task/task.actions"
+
 
 
 const Tasklist = ({ taskIDs, dispatch }: { taskIDs: string[], dispatch: any }): JSX.Element => {
@@ -19,8 +20,22 @@ const Tasklist = ({ taskIDs, dispatch }: { taskIDs: string[], dispatch: any }): 
 };
 
 function mapStateToProps(state: any) {
+
+    const checkTags = (tags: string[]): boolean => {
+        const tagsToFilter = state.filters.filters
+        // returns true only if there are no tags that are being filtered 
+        return tags.filter(tag => tagsToFilter.includes(tag)).length === 0
+    }
+
+    const filteredResults = state.tasks.tasks.filter((task: any) => checkTags(task.tags))
+    var search = new JsSearch.Search("id");
+    search.addIndex('name');
+    search.addIndex('tags')
+    search.addDocuments(filteredResults);
+
+    const results = state.filters.search ? search.search(state.filters.search) : state.tasks.tasks;
     return {
-        taskIDs: state.tasks.tasks.map((task: any): string => task.id)
+        taskIDs: results.map((task: any): string => task.id)
     };
 }
 

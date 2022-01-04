@@ -52,6 +52,7 @@ const Task = ({ taskID, task, dispatch }: { taskID: string, task: any, dispatch:
                 <li>
                     {task.name}
                 </li>
+                {task.tags.map((tag: any) => (<p>{tag}</p>))}
                 <button onClick={() => dispatch(deleteTask(taskID))}>Delete task</button>
                 <button onClick={() => setToggleEdit(!toggleEdit)}>Edit task</button>
             </div>
