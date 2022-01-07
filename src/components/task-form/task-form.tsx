@@ -3,7 +3,6 @@ import React, { useState } from "react"
 
 import { AiOutlinePlus } from "react-icons/ai"
 import { CustomButton, Tag } from "../../components"
-import task from "../task/task"
 import styles from "./task-form.module.scss"
 
 const TaskForm = (props: any): JSX.Element => {
