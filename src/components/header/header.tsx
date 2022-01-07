@@ -5,20 +5,30 @@ import { connect } from "react-redux";
 
 import { logout } from "../../redux/auth/auth.actions"
 
+import styles from "./header.module.scss"
+
 
 const Header = ({ isLoggedIn, name, dispatch }: { isLoggedIn: boolean, name: string, dispatch: any }): JSX.Element => {
+    let headerComponents
+
     if (isLoggedIn) {
-        return (
+        headerComponents = (
             <div>
-                <p>Logged in as: {name}</p>
-                <button onClick={() => dispatch(logout())}>Logout</button>
-            </div>
-        )
+                <span>Logged in as: {name}</span>
+                <span onClick={() => dispatch(logout())}>Logout</span>
+            </div>)
     } else {
-        return (
-            <Link to ="/login">Login</Link>
-        )
+        headerComponents = (
+            <div>
+                <Link to="/login">Login</Link>
+            </div>)
     }
+    
+    return (
+        <div className={styles.header}>
+            {headerComponents}
+        </div>
+    )
 }
 
 const mapStateToProps = (state: any) => {

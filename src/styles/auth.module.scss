@@ -1,3 +1,42 @@
-.class {
-  font-family: "Ariel";
+.page {
+  display: flex;
+  background-color: #252a34;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+}
+
+@mixin toggleButton {
+  width: 250px;
+  height: 50px;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 25px 25px 0 0;
+  overflow: hidden;
+  transition: 0.5s ease;
+}
+
+.toggle {
+  &Container {
+    margin-top: 10%;
+    display: flex;
+    align-items: center;
+    border-radius: 25px 25px 0 0;
+    background-color: #fff;
+    overflow: hidden;
+  }
+
+  &Button {
+    @include toggleButton();
+  }
+
+  &ButtonFocused {
+    @include toggleButton();
+
+    background-color: #ff2e63;
+    color: #fff;
+  }
 }

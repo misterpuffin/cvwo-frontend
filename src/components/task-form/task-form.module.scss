@@ -1,0 +1,137 @@
+.taskForm {
+  font-family: "Ubuntu";
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &Container {
+    width: 100%;
+    background-color: #fff;
+    padding: 1rem;
+    margin: 5px 0;
+    box-sizing: border-box;
+    border-radius: 5px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  }
+
+  &Input {
+    font-family: "Ubuntu";
+    margin: 5px 0;
+    width: 100%;
+    padding: 0.75rem 0.5rem;
+    box-sizing: border-box;
+    font-size: 1.15rem;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    transition: 0.5s ease;
+
+    &:focus {
+      outline: none;
+      background-color: #e8f0fe;
+      margin-top: 1.25rem;
+      border-bottom: 5px solid black;
+
+      & + .taskFormInputLabel {
+        color: rgba(37, 42, 52, 1);
+        font-size: 1rem;
+        top: 0;
+        left: 0;
+      }
+    }
+
+    &Container {
+      flex: auto;
+      display: flex;
+      position: relative;
+      flex-direction: column;
+      width: 80%;
+    }
+
+    &Label {
+      position: absolute;
+      color: rgba(37, 42, 52, 0);
+      font-size: 1.5rem;
+      top: 0.8rem;
+      left: 0.5rem;
+      transition: 0.5s ease;
+    }
+  }
+}
+
+.tag {
+  &Button {
+    align-self: flex-start;
+    font-family: "Open Sans";
+    border-radius: 1rem;
+    padding: 0.25rem 0.5rem;
+    margin: 5px;
+    line-height: 1;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    border: 3px solid #404040;
+    background: #fff;
+    color: #404040;
+    border-radius: 2.5rem;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.35s;
+
+    &:hover {
+      background: #404040;
+      color: #fff;
+    }
+
+    &Icon {
+      position: relative;
+      top: 0.15rem;
+    }
+  }
+  &Container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  &Input {
+    font-family: "Ubuntu";
+    flex: auto;
+    min-width: 100px;
+    margin: 5px 0;
+    padding: 0.25rem 0.5rem;
+    box-sizing: border-box;
+    font-size: 1rem;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    transition: 0.5s ease;
+
+    &:focus {
+      outline: none;
+      background-color: #e8f0fe;
+      border-bottom: 5px solid black;
+    }
+  }
+}
+
+.add {
+  width: 2.5rem;
+  height: 2.5rem;
+  line-height: 1;
+  font-size: 1.125rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  border: 3px solid #404040;
+  background: #fff;
+  color: #404040;
+  border-radius: 2.5rem;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.35s;
+  margin: 5px;
+
+  &:hover {
+    background: #404040;
+    color: #fff;
+  }
+}

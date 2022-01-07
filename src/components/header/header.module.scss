@@ -1,0 +1,25 @@
+.header {
+  background-color: #08d9d6;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px 50px;
+  text-align: right;
+
+  font-size: 1rem;
+  font-family: "Ubuntu";
+  font-weight: 900;
+  color: #252a34;
+
+  a,
+  span {
+    font-size: 1.5rem;
+    margin: 25px;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+      color: black;
+    }
+  }
+}

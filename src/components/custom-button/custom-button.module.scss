@@ -1,0 +1,23 @@
+.customButton {
+  margin: 20px;
+
+  font-family: "Ubuntu";
+  padding: 0 2.5rem;
+  height: 40px;
+  line-height: 1;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  border: 3px solid #8c82fc;
+  background: #fff;
+  color: #8c82fc;
+  border-radius: 40px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.35s;
+
+  &:hover {
+    background: #8c82fc;
+    color: #fff;
+  }
+}

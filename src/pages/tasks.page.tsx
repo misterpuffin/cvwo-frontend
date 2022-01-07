@@ -3,7 +3,9 @@ import React from "react"
 import { connect } from "react-redux";
 import { Navigate } from "react-router-dom"
 
-import { Tasklist, Taskform, Header, SearchBar } from "../components"
+import { Tasklist, NewTaskForm, Header, SearchBar } from "../components"
+
+import styles from "../styles/tasks.module.scss"
 
 
 const TasksPage = ({ isLoggedIn }: { isLoggedIn: boolean }): JSX.Element => {
@@ -11,11 +13,13 @@ const TasksPage = ({ isLoggedIn }: { isLoggedIn: boolean }): JSX.Element => {
         return <Navigate to="/login"></Navigate>
     } else {
         return (
-        <div>
+        <div >
             <Header></Header>
-            <SearchBar></SearchBar>
-            <Taskform></Taskform>
-            <Tasklist></Tasklist> 
+            <div className={styles.page}>
+                <SearchBar></SearchBar>
+                <Tasklist></Tasklist> 
+                <NewTaskForm></NewTaskForm>
+            </div>
         </div>)
     }
 }

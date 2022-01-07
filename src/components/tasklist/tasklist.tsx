@@ -5,6 +5,8 @@ import * as JsSearch from 'js-search';
 import { Task } from "../../components"
 import { getTasks } from "../../redux/task/task.actions"
 
+import styles from "./tasklist.module.scss"
+
 
 
 const Tasklist = ({ taskIDs, dispatch }: { taskIDs: string[], dispatch: any }): JSX.Element => {
@@ -14,7 +16,7 @@ const Tasklist = ({ taskIDs, dispatch }: { taskIDs: string[], dispatch: any }): 
     }, [dispatch]);
 
 
-    return (<div>
+    return (<div className={styles.tasklist}>
         {taskIDs.map(taskID =><Task key={taskID} taskID = { taskID }></Task>)}
     </div>)
 };

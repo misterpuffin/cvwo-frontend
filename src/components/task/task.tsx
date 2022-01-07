@@ -1,36 +1,20 @@
+// Dependencies
 import React, { useState } from "react"
-
 import { connect } from "react-redux"
 
-
-// import styles from "./task.module.scss"
-
+// Redux Actions
 import { updateTask, deleteTask } from "../../redux/task/task.actions"
 
-const TaskEditor = ({ task, handleSubmit }: { task: any, handleSubmit: any }): JSX.Element => {
-    const [formValue, setFormValue] = useState({
-        name: task.name
-    });
+// Components, Icon and styles
+import { Tag, TaskForm } from "../../components"
+import { AiFillDelete, AiFillEdit } from "react-icons/ai"
+import styles from "./task.module.scss"
 
-    const handleChange = (event: any) => {
-        setFormValue({
-            ...formValue,
-            [event.target.name]: event.target.value
-        })
-    }
+const TaskEditor = ({ task, handleSubmit }: { task: any, handleSubmit: any }): JSX.Element => {
 
 
     return (
-        <form onSubmit={event => handleSubmit(formValue)(event)}>
-            <input
-                type="name"
-                name="name"
-                placeholder="enter a name"
-                value={formValue.name}
-                onChange={handleChange}
-            />
-            <button type="submit">Save</button>
-        </form>
+        <TaskForm handleSubmit={handleSubmit} text={"Save Task"} task={task}></TaskForm>
     )
 }
 
@@ -38,8 +22,7 @@ const TaskEditor = ({ task, handleSubmit }: { task: any, handleSubmit: any }): J
 const Task = ({ taskID, task, dispatch }: { taskID: string, task: any, dispatch: any }): JSX.Element => {
     const [toggleEdit, setToggleEdit] = useState(false);
 
-    const handleSubmit = (data: any) => (event: any) => {
-        event.preventDefault();
+    const handleSubmit = (data: any) => {
         setToggleEdit(false);
         dispatch(updateTask(taskID, data))
     }
@@ -48,13 +31,17 @@ const Task = ({ taskID, task, dispatch }: { taskID: string, task: any, dispatch:
         return <TaskEditor task={task} handleSubmit={handleSubmit}></TaskEditor>
     } else {
         return(
-            <div>
-                <li>
-                    {task.name}
-                </li>
-                {task.tags.map((tag: any) => (<p>{tag}</p>))}
-                <button onClick={() => dispatch(deleteTask(taskID))}>Delete task</button>
-                <button onClick={() => setToggleEdit(!toggleEdit)}>Edit task</button>
+            <div className={styles.task}>
+                <div className={styles.taskText}>
+                    <span className={styles.taskName}>
+                        {task.name}
+                    </span>
+                    <div className={styles.taskTagContainer}>
+                        {task.tags.map((tag: any) => (<Tag name={tag}/>))}
+                    </div>
+                </div>
+                <button className={styles.delete} onClick={() => dispatch(deleteTask(taskID))}><AiFillDelete/></button>
+                <button className={styles.edit} onClick={() => setToggleEdit(!toggleEdit)}><AiFillEdit/></button>
             </div>
         )
     }

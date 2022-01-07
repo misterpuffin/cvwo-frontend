@@ -1,3 +1,59 @@
-.class {
-  font-family: "Ariel";
+$red: rgb(192, 57, 43);
+$grey: #404040;
+
+.task {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  margin: 5px 0;
+  box-sizing: border-box;
+
+  border-radius: 5px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  &Text {
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+  }
+  &Name {
+    color: black;
+    font-family: "Ubuntu";
+    font-size: 1.5rem;
+    text-align: left;
+  }
+
+  &TagContainer {
+    display: flex;
+  }
+}
+
+@mixin Icon($color) {
+  width: 2.5rem;
+  height: 2.5rem;
+  line-height: 1;
+  font-size: 1.125rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  border: 3px solid $color;
+  background: #fff;
+  color: $color;
+  border-radius: 2.5rem;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.35s;
+  margin: 5px;
+
+  &:hover {
+    background: $color;
+    color: #fff;
+  }
+}
+.delete {
+  @include Icon($red);
+}
+
+.edit {
+  @include Icon($grey);
 }
