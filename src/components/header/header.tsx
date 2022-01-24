@@ -18,7 +18,7 @@ const Header = ({ isLoggedIn, name, dispatch }: { isLoggedIn: boolean, name: str
         dispatch({
             type: "CLEAR_ERROR"
         })
-    }, []);
+    }, [dispatch]);
 
     if (isLoggedIn) {
         headerComponents = (
