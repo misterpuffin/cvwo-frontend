@@ -13,7 +13,7 @@ import Form from "react-validation/build/form";
 import CheckButton from "react-validation/build/button";
 
 import validator from "validator";
-import { CustomButton, CustomInput, Error } from "../../components";
+import { CustomButton, CustomInput, Error, Message } from "../../components";
 
 import styles from "./login-form.module.scss"
 
@@ -99,7 +99,7 @@ const LoginForm = ({ isLoggedIn, message, dispatch }: LoginProps): JSX.Element =
                     style={{ display: "none" }}
                     ref={(node: any) => {checkButtonRef = node;}}
                 />
-                {message && <Error>{message}</Error>}
+                {message && <Message/>}
             </Form>
         </div>
     )

@@ -1,0 +1,59 @@
+@mixin message {
+  position: relative;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+.message {
+  @include message;
+  color: #393e46;
+  background-color: #eeeeee;
+  border-color: #eeeeee;
+}
+
+.error {
+  @include message;
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+.success {
+  @include message;
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+
+.ellipsis {
+  font-size: 5rem;
+  height: 2.5rem;
+  position: relative;
+  top: -3.5rem;
+}
+
+.ellipsis:after {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+  -webkit-animation: ellipsis steps(4, end) 900ms infinite;
+  animation: ellipsis steps(4, end) 900ms infinite;
+  content: "\2026"; /* ascii code for the ellipsis character */
+  width: 0px;
+}
+
+@keyframes ellipsis {
+  to {
+    width: 5rem;
+  }
+}
+
+@-webkit-keyframes ellipsis {
+  to {
+    width: 5rem;
+  }
+}

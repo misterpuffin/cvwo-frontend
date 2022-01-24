@@ -8,12 +8,14 @@ import AuthVerify from "./auth-verify/auth-verify";
 import SearchBar from "./search-bar/search-bar";
 import CustomButton from "./custom-button/custom-button";
 import CustomInput from "./custom-input/custom-input";
-import Error from "./error/error";
+import Message from "./message/message";
 import Tag from "./tag/tag";
+import Error from "./error/error";
 import NewTaskForm from "./new-task-form/new-task-form";
 
 export {
   Error,
+  Message,
   CustomButton,
   LoginForm,
   Tag,

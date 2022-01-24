@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 
 import { Link } from "react-router-dom"
 import { connect } from "react-redux";
@@ -10,6 +10,15 @@ import styles from "./header.module.scss"
 
 const Header = ({ isLoggedIn, name, dispatch }: { isLoggedIn: boolean, name: string, dispatch: any }): JSX.Element => {
     let headerComponents
+
+    useEffect(() => {
+        dispatch({
+            type: "CLEAR_MESSAGE"
+        });
+        dispatch({
+            type: "CLEAR_ERROR"
+        })
+    }, []);
 
     if (isLoggedIn) {
         headerComponents = (

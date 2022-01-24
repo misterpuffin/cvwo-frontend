@@ -12,16 +12,23 @@ $grey: #404040;
 
   border-radius: 5px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
   &Text {
     display: flex;
     flex-direction: column;
     flex: auto;
-  }
-  &Name {
-    color: black;
     font-family: "Ubuntu";
     font-size: 1.5rem;
     text-align: left;
+  }
+  &Name {
+    color: black;
+    transition: 0.5s ease;
+
+    &Checked {
+      color: rgba(99, 99, 99, 0.8);
+      text-decoration: line-through;
+    }
   }
 
   &TagContainer {
@@ -56,4 +63,12 @@ $grey: #404040;
 
 .edit {
   @include Icon($grey);
+}
+
+.checkbox {
+  & input {
+    width: 1rem;
+    height: 1rem;
+  }
+  margin: 1rem;
 }

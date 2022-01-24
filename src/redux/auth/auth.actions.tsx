@@ -4,12 +4,18 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
-  SET_MESSAGE
+  SET_MESSAGE,
+  CLEAR_ERROR,
+  SET_ERROR
 } from "./auth.types";
 
 import { AuthAPI } from "../../api"
 
 export const register = (name: string, email: string, password: string) => (dispatch: any) => {
+  dispatch({
+    type: SET_MESSAGE,
+    payload: "loading",
+  });
   return AuthAPI.register(name, email, password).then(
     (response) => {
       dispatch({
@@ -36,6 +42,10 @@ export const register = (name: string, email: string, password: string) => (disp
       });
 
       dispatch({
+        type: SET_ERROR
+      })
+
+      dispatch({
         type: SET_MESSAGE,
         payload: message,
       });
@@ -46,12 +56,20 @@ export const register = (name: string, email: string, password: string) => (disp
 };
 
 export const login = (email: string, password: string) => (dispatch: any) => {
+  dispatch({
+    type: SET_MESSAGE,
+    payload: "loading",
+  });
   return AuthAPI.login(email, password).then(
     (data) => {
       dispatch({
         type: LOGIN_SUCCESS,
         payload: { user: data },
       });
+
+      dispatch({
+        type: CLEAR_ERROR
+      })
 
       dispatch({
         type: SET_MESSAGE,
@@ -72,6 +90,10 @@ export const login = (email: string, password: string) => (dispatch: any) => {
       dispatch({
         type: LOGIN_FAIL,
       });
+
+      dispatch({
+        type: SET_ERROR,
+      })
 
       dispatch({
         type: SET_MESSAGE,

@@ -21,10 +21,16 @@ const TaskEditor = ({ task, handleSubmit }: { task: any, handleSubmit: any }): J
 
 const Task = ({ taskID, task, dispatch }: { taskID: string, task: any, dispatch: any }): JSX.Element => {
     const [toggleEdit, setToggleEdit] = useState(false);
+    const [done, setDone] = useState(task.done);
 
     const handleSubmit = (data: any) => {
         setToggleEdit(false);
         dispatch(updateTask(taskID, data))
+    }
+
+    const handleChange = (event: any) => {
+        setDone(event.target.checked);
+        dispatch(updateTask(taskID, {...task, done: event.target.checked}));
     }
 
     if (toggleEdit) {
@@ -32,8 +38,11 @@ const Task = ({ taskID, task, dispatch }: { taskID: string, task: any, dispatch:
     } else {
         return(
             <div className={styles.task}>
+                <div className={styles.checkbox}>
+                    <input type="checkbox" checked={done} onChange={handleChange}></input>
+                </div>
                 <div className={styles.taskText}>
-                    <span className={styles.taskName}>
+                    <span className={done ? styles.taskNameChecked : styles.taskName}>
                         {task.name}
                     </span>
                     <div className={styles.taskTagContainer}>

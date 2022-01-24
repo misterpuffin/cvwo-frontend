@@ -12,7 +12,7 @@ import validator from "validator";
 import { register } from "../../redux/auth/auth.actions"
 
 // Components
-import { CustomButton, CustomInput, Error } from "../../components";
+import { CustomButton, CustomInput, Message, Error } from "../../components";
 
 // CSS Style sheets
 import styles from "./register-form.module.scss"
@@ -101,7 +101,7 @@ const RegisterForm = ({message, dispatch}: RegisterProps): JSX.Element => {
                     style={{ display: "none" }}
                     ref={(node: any) => {checkButtonRef = node;}}
                 />
-                {message && <Error>{message}</Error>}
+                {message && <Message/>}
             </Form>
         </div>
     )

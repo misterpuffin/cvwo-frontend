@@ -36,6 +36,7 @@ function mapStateToProps(state: any) {
     search.addDocuments(filteredResults);
 
     const results = state.filters.search ? search.search(state.filters.search) : state.tasks.tasks;
+    results.sort((x: any, y: any) => (x.done === y.done) ? 0 : x.done ? 1 : -1);
     return {
         taskIDs: results.map((task: any): string => task.id)
     };

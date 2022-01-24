@@ -1,7 +1,4 @@
 .error {
-  color: #721c24;
-  background-color: #f8d7da;
-  border-color: #f5c6cb;
   position: relative;
   padding: 0.5rem 1rem;
   margin-bottom: 1rem;
@@ -9,4 +6,7 @@
   border-radius: 0.25rem;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
 }

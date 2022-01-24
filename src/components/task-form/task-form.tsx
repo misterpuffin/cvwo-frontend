@@ -33,7 +33,7 @@ const TaskForm = (props: any): JSX.Element => {
 
     const handleTagSubmit = (event:any) => {
         if (event.key === 'Enter'){
-            const allTags = [...formValue.tags, tagValue]
+            const allTags = [...formValue.tags, tagValue.trim()]
             const distinctTags = allTags.filter((tag, index) => allTags.indexOf(tag) === index)
             setFormValue({
                 ...formValue,

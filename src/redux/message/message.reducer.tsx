@@ -1,5 +1,6 @@
 const INITIAL_STATE = {
-  message: ""
+  message: "",
+  error: false
 };
 
 const messageReducer = (state = INITIAL_STATE, action: any) => {
@@ -12,6 +13,16 @@ const messageReducer = (state = INITIAL_STATE, action: any) => {
     case 'CLEAR_MESSAGE':
       return {
         message: ""
+      }
+    case 'SET_ERROR':
+      return {
+        ...state,
+        error: true
+      }
+    case 'CLEAR_ERROR':
+      return {
+        ...state,
+        error: false
       }
     default:
       return state;
