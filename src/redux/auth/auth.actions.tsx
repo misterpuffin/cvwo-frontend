@@ -23,6 +23,11 @@ export const register = (name: string, email: string, password: string) => (disp
       });
 
       dispatch({
+        type: CLEAR_ERROR
+      });
+
+
+      dispatch({
         type: SET_MESSAGE,
         payload: "Successfully registered user",
       });
